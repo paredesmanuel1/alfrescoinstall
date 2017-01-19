@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<!-- saved from url=(0128)https://dalanzg.github.io/tips-tutorials/ubuntu/2016/05/07/how-to-install-alfresco-community-edition-5.1-in-ubuntu-server-14-04/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  
+  <title>How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04</title>
+  <meta content="How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04" property="og:title">
+  <meta content="How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04" name="twitter:title">
+  
+  <meta content="Tips and Tutorials by @dalanzg" property="og:site_name">
+  
+  <meta content="Alfresco Communitu Edition 5.1 is installed in Ubuntu Server virtual machine." name="description">
+  <meta content="Alfresco Communitu Edition 5.1 is installed in Ubuntu Server virtual machine." property="og:description">
+  <meta content="Alfresco Communitu Edition 5.1 is installed in Ubuntu Server virtual machine." name="twitter:description">
+  
+  <meta content="Daniel Lanza" name="author">
+  <meta content="@dalanzg" name="twitter:site">
+  <meta content="@dalanzg" name="twitter:creator">  
+  
+  <meta content="article" property="og:type">
+  
+  <meta content="summary" name="twitter:card">
+  
+  <meta content="https://dalanzg.github.io/tips-tutorials/ubuntu/2016/05/07/how-to-install-alfresco-community-edition-5.1-in-ubuntu-server-14-04/" property="og:url">
+  <meta content="https://dalanzg.github.io/tips-tutorials/ubuntu/2016/05/07/how-to-install-alfresco-community-edition-5.1-in-ubuntu-server-14-04/" name="twitter:url">
+  
+  
+  <meta content="2016-05-07T12:00:00+00:00" property="article:published_time">
+  
+  <meta content="https://dalanzg.github.io/tips-tutorials/about/" property="article:author">
+  
+  <meta property="og:image" content="https://dalanzg.github.io/tips-tutorials/img/favicons/apple-touch-icon.png">
+  <meta name="twitter:image:src" content="https://dalanzg.github.io/tips-tutorials/img/favicons/apple-touch-icon.png">
+  
+  
+  
+  <meta property="article:tag" content="alfresco">
+  
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://dalanzg.github.io/tips-tutorials/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="https://dalanzg.github.io/tips-tutorials/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://dalanzg.github.io/tips-tutorials/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="https://dalanzg.github.io/tips-tutorials/img/favicons/manifest.json">
+  <link rel="mask-icon" href="https://dalanzg.github.io/tips-tutorials/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="apple-mobile-web-app-title" content="Tips and Tutorials by @dalanzg">
+  <meta name="application-name" content="Tips and Tutorials by @dalanzg">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="canonical" href="https://dalanzg.github.io/tips-tutorials/ubuntu/2016/05/07/how-to-install-alfresco-community-edition-5.1-in-ubuntu-server-14-04/">
+  <link rel="alternate" type="application/rss+xml" title="Tips and Tutorials by @dalanzg" href="https://dalanzg.github.io/tips-tutorials/feed.xml">
+  <link rel="”alternate”" hreflang="”en”" href="https://dalanzg.github.io/tips-tutorials/ubuntu/2016/05/07/how-to-install-alfresco-community-edition-5.1-in-ubuntu-server-14-04/">
+  <link rel="sitemap" href="https://dalanzg.github.io/tips-tutorials/sitemap.xml" title="Sitemap" type="application/xml">
+
+  <link rel="stylesheet" href="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/main.css">
+
+<script type="text/javascript" async="" src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/linkid.js.descarga"></script><script async="" src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/analytics.js.descarga"></script><script src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/embed.js.descarga" data-timestamp="1484752626708"></script><script src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/alfie.f51946af45e0b561c60f768335c9eb79.js.descarga" async="" charset="UTF-8"></script></head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-light bg-faded">
+  <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header">
+    ☰
+  </button>
+  <a class="navbar-brand" href="https://dalanzg.github.io/tips-tutorials/"><strong>Tips and Tutorials by @dalanzg</strong></a>
+  <div class="collapse navbar-toggleable-xs" id="navbar-header">
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="https://dalanzg.github.io/tips-tutorials/archive/">Archive</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://dalanzg.github.io/tips-tutorials/categories/">Categories</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://dalanzg.github.io/tips-tutorials/about/">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://dalanzg.github.io/tips-tutorials/feed.xml" target="_blank">RSS</a>
+      </li>
+    </ul>
+    <form class="form-inline float-xs-right" action="https://dalanzg.github.io/tips-tutorials/search" method="get" role="search">
+    <input class="form-control" type="text" id="search-box" name="query" placeholder="Search">
+      <button class="btn btn-success-outline" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </form>
+  </div>
+</nav>
+    
+
+
+
+<script type="application/ld+json">
+{  
+   "@context":"http://schema.org",
+   "@type":"BlogPosting",
+   "mainEntityOfPage":{  
+      "@type":"WebPage",
+      "@id":"https://dalanzg.github.io/tips-tutorials/ubuntu/2016/05/07/how-to-install-alfresco-community-edition-5.1-in-ubuntu-server-14-04/"
+   },
+   "headline":"How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04",
+   "description":"Alfresco Communitu Edition 5.1 is installed in Ubuntu Server virtual machine.",
+   "datePublished":"2016-05-07",
+   "dateModified":"2016-12-27",
+   "wordCount":"760",
+   "genre":"ubuntu",
+   "image":{  
+      "@type":"ImageObject",
+      "url":"https://dalanzg.github.io/tips-tutorials/img/category/ubuntu.png",
+      "width":"100",
+      "height":"100"
+   },
+   "author":{  
+      "@type":"Person",
+      "name":"Daniel Lanza",
+      "sameAs":[  
+        "https://twitter.com/dalanzg",
+        "https://github.com/dalanzg"
+      ]
+   },
+   "publisher":{  
+      "@type":"Organization",
+      "name":"Tips and Tutorials by @dalanzg",
+      "sameAs":[  
+        "https://twitter.com/dalanzg",
+        "https://github.com/dalanzg"
+      ],
+      "logo": {
+      "@type": "ImageObject",
+      "url": "https://dalanzg.github.io/tips-tutorials/img/favicons/android-chrome-192x192.png",
+      "width":"192",
+      "height":"192"
+    }
+   },
+   "articleBody":"This tutorial will explain how to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04. In this example, Ubuntu Server is a virtual machine made by VirtualBox.Requirements  Ubuntu Server virtual machine with:          Two network adapters:                  NAT adapter (eth0)          Host-only adapter (eth1) with a static IP address -&amp;gt; 192.168.56.101.                    Base memory: 4608 Mb      2 CPUs        Alfresco Community Edition binary file -&amp;gt; alfresco-community-installer-201604-linux-x64.binCheck out how to install Ubuntu Server on VirtualBox to get ready a virtual machine to install Alfresco Community Edition.Make directories for installation and applicationMake two directories:  /opt/alfsource -&amp;gt; Installation directory  /opt/alfresco -&amp;gt; Application directory$ sudo mkdir /opt/alfsource$ sudo mkdir /opt/alfrescoChange permissions for the directories.$ sudo chmod 777 /opt/alfsource$ sudo chmod 777 /opt/alfrescoUpload, for instance by sFTP, the binary file alfresco-community-installer-201604-linux-x64.bin to /opt/alfsource directory.And change permissions for the binary file.$ sudo chmod 777 /opt/alfsource/alfresco-community-installer-201604-linux-x64.binLibraries for LibreOfficeIf you run the installer, you will get a warning about libraries needed for LibreOffice.In order to make work LibreOffice you need some libraries installed on your system:  fontconfig  libSM  libICE  libXrender  libXext  libcupsInstall the libraries running the following command:$ sudo apt-get install libfontconfig1 libsm6 libice6 libxrender1 libxt6 libcups2Alfresco installationRun the installation. Hence, go to the installation folder and run the binary file.$ cd /opt/alfsource$ sudo ./alfresco-community-installer-201604-linux-x64.binYou will still get the warning when running the installation. Ignore it and continue.You can install in 2 ways:  [1] Easy – everything done on defaults  [2] Advanced- make your own choices on which options you wantUse [2] to change some installation options. In this tutorial, we will set the installation path and Web Server domain:  Installation path -&amp;gt; /opt/alfresco  Web Server domain -&amp;gt; 192.168.56.101This is the installation configuration:  Language - English  Installation type – Advanced  Java – yes  PostgreSQL – yes  LibreOffice – yes  Alfresco Community Edition - yes  Solr1 – no  Solr4 - yes  Alfresco Office Services - yes  Web Quick Start – yes  Google Docs Integration – yesAnd then,  Installation Folder - /opt/alfresco  Database Server Parameters – port 5432  Tomcat Port Configuration – Web Server domain = 192.168.56.101– Tomcat Server Port = 8080  Tomcat Shutdown Port = 8005  Tomcat SSL Port = 8443  Tomcat AJP Port = 8009  LibreOffice Server Port = 8100  Alfresco FTP Port = 2121  Admin Password = **The installation will have already started, and you will see a progress bar.When the installation is completed, you can launch Alfresco Community Edition.Alfresco will be launched in Tomcat. So, go to your Web Server domain and check the installation.Go to Tomcat index page for Alfresco -&amp;gt; http://192.168.56.101:8080Congratulations!! Alfresco Community Edition is installed in Ubuntu Server.Let’s check if Alfresco is running properly.$ cd /opt/alfresco$ .alfresco.sh statusIf either Tomcat or PostgreSQL is not running, start the services with alfresco.sh script.$ cd /opt/alfresco$ .alfresco.sh startLet’s log in Alfresco. Go to share page (http://192.168.56.101:8080/share) with:  User: Admin  Password: (your Admin password)You are in! Enjoy Alfresco 😃"
+}
+</script>
+
+
+<div class="card">
+  <h1 class="card-header">How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04</h1>
+  <div class="card-block">
+    <h6 class="card-subtitle text-muted">Posted by Daniel Lanza on May 7, 2016</h6>
+  </div>
+  <div class="card-block">
+    <p>This tutorial will explain how to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04. In this example, Ubuntu Server is a virtual machine made by VirtualBox.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>Ubuntu Server virtual machine with:
+    <ul>
+      <li>Two network adapters:
+        <ul>
+          <li>NAT adapter (eth0)</li>
+          <li>Host-only adapter (eth1) with a static IP address -&gt; <code>192.168.56.101</code>.</li>
+        </ul>
+      </li>
+      <li>Base memory: 4608 Mb</li>
+      <li>2 CPUs</li>
+    </ul>
+  </li>
+  <li><a href="https://www.alfresco.com/products/community/download">Alfresco Community Edition binary file</a> -&gt; <code>alfresco-community-installer-201604-linux-x64.bin</code></li>
+</ul>
+
+<p>Check out <a href="https://dalanzg.github.io/tips-tutorials/ubuntu/2016/04/15/install-ubuntu-server-on-virtualbox/">how to install Ubuntu Server on VirtualBox</a> to get ready a virtual machine to install Alfresco Community Edition.</p>
+
+<h2 id="make-directories-for-installation-and-application">Make directories for installation and application</h2>
+
+<p>Make two directories:</p>
+
+<ul>
+  <li><code>/opt/alfsource</code> -&gt; Installation directory</li>
+  <li><code>/opt/alfresco</code> -&gt; Application directory</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight language-shell"><code class=" language-shell"><span class="gp">$ </span>sudo mkdir /opt/alfsource
+<span class="gp">$ </span>sudo mkdir /opt/alfresco
+</code></pre>
+</div>
+
+<p>Change permissions for the directories.</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight language-shell"><code class=" language-shell"><span class="gp">$ </span>sudo chmod 777 /opt/alfsource
+<span class="gp">$ </span>sudo chmod 777 /opt/alfresco
+</code></pre>
+</div>
+
+<p>Upload, for instance by sFTP, the binary file <code>alfresco-community-installer-201604-linux-x64.bin</code> to <code>/opt/alfsource</code> directory.</p>
+
+<p><a href="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/upload-sftp-alfresco-binary.png" data-lightbox="post" data-title="Upload Alfresco binary file"><img class="img-post" src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/upload-sftp-alfresco-binary.png" alt="Upload Alfresco binary file" title="Upload Alfresco binary file" width="500"></a></p>
+
+<p>And change permissions for the binary file.</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight language-shell"><code class=" language-shell"><span class="gp">$ </span>sudo chmod 777 /opt/alfsource/alfresco-community-installer-201604-linux-x64.bin
+</code></pre>
+</div>
+
+<h2 id="libraries-for-libreoffice">Libraries for LibreOffice</h2>
+
+<p>If you run the installer, you will get a warning about libraries needed for LibreOffice.</p>
+
+<p>In order to make work LibreOffice you need some libraries installed on your system:</p>
+
+<ul>
+  <li>fontconfig</li>
+  <li>libSM</li>
+  <li>libICE</li>
+  <li>libXrender</li>
+  <li>libXext</li>
+  <li>libcups</li>
+</ul>
+
+<p>Install the libraries running the following command:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight language-shell"><code class=" language-shell"><span class="gp">$ </span>sudo apt-get install libfontconfig1 libsm6 libice6 libxrender1 libxt6 libcups2
+</code></pre>
+</div>
+
+<h2 id="alfresco-installation">Alfresco installation</h2>
+
+<p>Run the installation. Hence, go to the installation folder and run the binary file.</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight language-shell"><code class=" language-shell"><span class="gp">$ </span><span class="nb">cd</span> /opt/alfsource
+<span class="gp">$ </span>sudo ./alfresco-community-installer-201604-linux-x64.bin
+</code></pre>
+</div>
+
+<p>You will still get the warning when running the installation. Ignore it and continue.</p>
+
+<p><a href="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/libraries-libreoffice-alfresco.png" data-lightbox="post" data-title="Libraries needed for LibreOffice"><img class="img-post" src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/libraries-libreoffice-alfresco.png" alt="Libraries needed for LibreOffice" title="Libraries needed for LibreOffice" width="500"></a></p>
+
+<p>You can install in 2 ways:</p>
+
+<ul>
+  <li>[1] Easy – everything done on defaults</li>
+  <li>[2] Advanced- make your own choices on which options you want</li>
+</ul>
+
+<p>Use [2] to change some installation options. In this tutorial, we will set the installation path and Web Server domain:</p>
+
+<ul>
+  <li>Installation path -&gt; <code>/opt/alfresco</code></li>
+  <li>Web Server domain -&gt; <code>192.168.56.101</code></li>
+</ul>
+
+<p>This is the installation configuration:</p>
+
+<ul>
+  <li>Language - English</li>
+  <li>Installation type – Advanced</li>
+  <li>Java – yes</li>
+  <li>PostgreSQL – yes</li>
+  <li>LibreOffice – yes</li>
+  <li>Alfresco Community Edition - yes</li>
+  <li>Solr1 – no</li>
+  <li>Solr4 - yes</li>
+  <li>Alfresco Office Services - yes</li>
+  <li>Web Quick Start – yes</li>
+  <li>Google Docs Integration – yes</li>
+</ul>
+
+<p>And then,</p>
+
+<ul>
+  <li>Installation Folder - /opt/alfresco</li>
+  <li>Database Server Parameters – port 5432</li>
+  <li>Tomcat Port Configuration – Web Server domain = 192.168.56.101
+– Tomcat Server Port = 8080</li>
+  <li>Tomcat Shutdown Port = 8005</li>
+  <li>Tomcat SSL Port = 8443</li>
+  <li>Tomcat AJP Port = 8009</li>
+  <li>LibreOffice Server Port = 8100</li>
+  <li>Alfresco FTP Port = 2121</li>
+  <li>Admin Password = <strong>**</strong></li>
+</ul>
+
+<p><a href="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/installation-type-and-components.png" data-lightbox="post" data-title="Installation type and Components"><img class="img-post" src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/installation-type-and-components.png" alt="Installation type and Components" title="Installation type and Components" width="500"></a></p>
+
+<p><a href="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/installation-folder-database-server-parameters-and-tomcat-port-configuration.png" data-lightbox="post" data-title="Installation type and Components"><img class="img-post" src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/installation-folder-database-server-parameters-and-tomcat-port-configuration.png" alt="Installation type and Components" title="Installation type and Components" width="500"></a></p>
+
+<p><a href="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/libreoffice-and-alfresco-ports.png" data-lightbox="post" data-title="LibreOffice and Alfresco Ports"><img class="img-post" src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/libreoffice-and-alfresco-ports.png" alt="LibreOffice and Alfresco Ports" title="LibreOffice and Alfresco Ports" width="500"></a></p>
+
+<p>The installation will have already started, and you will see a progress bar.</p>
+
+<p><a href="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/installation-progress-bar.png" data-lightbox="post" data-title="Installation progress bar"><img class="img-post" src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/installation-progress-bar.png" alt="Installation progress bar" title="Installation progress bar" width="500"></a></p>
+
+<p>When the installation is completed, you can launch Alfresco Community Edition.</p>
+
+<p><a href="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/launch-alfresco.png" data-lightbox="post" data-title="Launch Alfresco"><img class="img-post" src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/launch-alfresco.png" alt="Launch Alfresco" title="Launch Alfresco" width="500"></a></p>
+
+<p>Alfresco will be launched in Tomcat. So, go to your Web Server domain and check the installation.</p>
+
+<p>Go to Tomcat index page for Alfresco -&gt; http://192.168.56.101:8080</p>
+
+<p><a href="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/tomcat-index-page.png" data-lightbox="post" data-title="Tomcat index page for Alfresco"><img class="img-post" src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/tomcat-index-page.png" alt="Tomcat index page for Alfresco" title="Tomcat index page for Alfresco" width="500"></a></p>
+
+<p><a href="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/alfresco-repository.png" data-lightbox="post" data-title="Alfresco Repository"><img class="img-post" src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/alfresco-repository.png" alt="Alfresco Repository" title="Alfresco Repository" width="500"></a></p>
+
+<p>Congratulations!! Alfresco Community Edition is installed in Ubuntu Server.</p>
+
+<p>Let’s check if Alfresco is running properly.</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight language-shell"><code class=" language-shell"><span class="gp">$ </span><span class="nb">cd</span> /opt/alfresco
+<span class="gp">$ </span>.alfresco.sh status
+</code></pre>
+</div>
+
+<p>If either Tomcat or PostgreSQL is not running, start the services with <code>alfresco.sh</code> script.</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight language-shell"><code class=" language-shell"><span class="gp">$ </span><span class="nb">cd</span> /opt/alfresco
+<span class="gp">$ </span>.alfresco.sh start
+</code></pre>
+</div>
+
+<p>Let’s log in Alfresco. Go to share page (http://192.168.56.101:8080/share) with:</p>
+
+<ul>
+  <li>User: Admin</li>
+  <li>Password: (your Admin password)</li>
+</ul>
+
+<p><a href="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/alfresco-community-edition-share.png" data-lightbox="post" data-title="Alfresco Community Edition"><img class="img-post" src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/alfresco-community-edition-share.png" alt="Alfresco Community Edition" title="Alfresco Community Edition" width="500"></a></p>
+
+<p>You are in! Enjoy Alfresco 😃</p>
+
+  </div>
+  <div class="card-block">
+    
+<div class="comments">
+  <div id="disqus_thread"><iframe id="dsq-app1" name="dsq-app1" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 501px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+  <script>
+    /*
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+    */
+
+    var disqus_config = function () {
+      this.page.url = "https://dalanzg.github.io/tips-tutorials/ubuntu/2016/05/07/how-to-install-alfresco-community-edition-5.1-in-ubuntu-server-14-04/";
+      this.page.identifier = '/ubuntu/2016/05/07/how-to-install-alfresco-community-edition-5.1-in-ubuntu-server-14-04';
+      this.page.title = 'How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04';
+    };
+
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+      var d = document, s = d.createElement('script');
+
+      s.src = '//tips-tutorials.disqus.com/embed.js';  // IMPORTANT: Replace EXAMPLE with your forum shortname!
+
+      s.setAttribute('data-timestamp', +new Date());
+
+      (d.head || d.body).appendChild(s);
+
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the &lt;a href="https://disqus.com/?ref_noscript" rel="nofollow"&gt;comments powered by Disqus.&lt;/a&gt;</noscript>
+</div>
+
+  </div>
+  <div class="card-block">
+    <nav class="text-xs-center" aria-label="Page navigation">
+      <ul class="pagination">
+        
+        <li class="page-item">
+          <a class="page-link" href="https://dalanzg.github.io/tips-tutorials/ubuntu/2016/05/02/how-to-connect-to-your-mysql-database-remotely/" aria-label="Previous" rel="prev">
+            <span aria-hidden="true">« Previous Post</span>
+            <span class="sr-only">« Previous Post</span>
+          </a>
+        </li>
+        
+        
+        <li class="page-item">
+          <a class="page-link" href="https://dalanzg.github.io/tips-tutorials/java/2016/05/13/how-to-get-parameters-from-java-properties-file/" aria-label="Next" rel="next">
+            <span aria-hidden="true">Next Post »</span>
+            <span class="sr-only">Next Post »</span>
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+  </div>
+</div>
+
+  </div>
+  <footer class="blog-footer">
+  <p>
+    </p><nav class="nav nav-inline">
+      <a class="nav-link" href="https://dalanzg.github.io/tips-tutorials/feed.xml" target="_blank">
+        <i class="fa fa-rss fa-3x"></i>
+      </a>
+      
+      <a class="nav-link" href="https://twitter.com/dalanzg" target="_blank">
+        <i class="fa fa-twitter fa-3x"></i>
+      </a>
+      
+      <a class="nav-link" href="https://github.com/dalanzg" target="_blank">
+        <i class="fa fa-github fa-3x"></i>
+      </a>
+      
+      <a class="nav-link" href="https://www.linkedin.com/in/danilanza" target="_blank">
+        <i class="fa fa-linkedin fa-3x"></i>
+      </a>
+      
+      <a class="nav-link" href="https://www.flickr.com/photos/dalanz/" target="_blank">
+        <i class="fa fa-flickr fa-3x"></i>
+      </a>
+      
+    </nav>
+  <p></p>
+  <p class="text-muted">Copyright ©  2017</p>
+  <p class="text-muted"><small>All rights reserved. Blog powered by <a href="https://jekyllrb.com/">Jekyll</a></small></p>
+  <p class="text-muted"><small><a href="https://opensource.org/licenses/MIT">MIT License</a></small></p>
+</footer>
+
+  <!-- jQuery -->
+<script src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/jquery.min.js.descarga"></script>
+
+<!-- Tether -->
+<script src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/tether.min.js.descarga"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/bootstrap.min.js.descarga"></script>
+
+<!-- Lightbox -->
+<script src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/lightbox.min.js.descarga"></script>
+
+<!-- Prism -->
+<script src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/prism.js.descarga"></script>
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-65400010-1', 'auto');
+  ga('require', 'linkid');
+  ga('send', 'pageview', {
+    'page': '/tips-tutorials/ubuntu/2016/05/07/how-to-install-alfresco-community-edition-5.1-in-ubuntu-server-14-04/',
+    'title': 'How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04'
+  });
+</script>
+
+
+
+
+<iframe style="display: none;" src="./How to install Alfresco Community Edition 5.1 in Ubuntu Server 14.04_files/saved_resource(1).html"></iframe><div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div><div id="lightbox" class="lightbox" style="display: none;"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="><div class="lb-nav"><a class="lb-prev" href="https://dalanzg.github.io/tips-tutorials/ubuntu/2016/05/07/how-to-install-alfresco-community-edition-5.1-in-ubuntu-server-14-04/"></a><a class="lb-next" href="https://dalanzg.github.io/tips-tutorials/ubuntu/2016/05/07/how-to-install-alfresco-community-edition-5.1-in-ubuntu-server-14-04/"></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div></body></html>
